@@ -12,7 +12,8 @@ const props = defineProps<{
   <nav>
     <a href="#" class="nav-logo" aria-label="John J. Smith III - home"
       @click="props.trackEvent('nav_logo_click', { link_url: '#' })">
-      <img class="nav-logo-mark" src="/logo-square.svg" alt="J logo" width="32" height="32" aria-hidden="true" />
+      <img class="nav-logo-mark" src="/logo-square.svg" alt="JIII monogram logo" width="32" height="32"
+        aria-hidden="true" />
       <span class="nav-logo-text">{{ siteConfig.navLogo }}</span>
     </a>
     <ul class="nav-links">

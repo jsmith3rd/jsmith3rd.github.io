@@ -11,7 +11,7 @@ const props = defineProps<{
   <footer>
     <a href="#" class="footer-logo" aria-label="John J. Smith III - back to top"
       @click="props.trackEvent('footer_logo_click', { link_url: '#' })">
-      <img src="/logo-square.svg" alt="J logo" width="32" height="32" aria-hidden="true" />
+      <img src="/logo-square.svg" alt="JIII monogram logo" width="32" height="32" aria-hidden="true" />
       <span class="footer-logo-text">{{ siteConfig.navLogo }}</span>
     </a>
     <p>

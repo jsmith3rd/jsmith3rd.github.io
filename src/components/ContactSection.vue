@@ -55,7 +55,30 @@ const props = defineProps<{
   overflow: hidden;
 }
 
+@media (max-width: 800px) {
+  .contact-section {
+    grid-template-columns: 1fr;
+    padding: 64px 16px;
+    gap: 32px;
+  }
 
+  .contact-logo-bg {
+    display: none;
+  }
+
+  .contact-content {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    padding: 48px 8px;
+  }
+}
 
 .contact-logo-bg {
   position: absolute;
@@ -132,6 +155,14 @@ const props = defineProps<{
   align-self: center;
 }
 
+@media (max-width: 800px) {
+  .contact-links {
+    margin-top: 32px;
+    width: 100%;
+    align-items: stretch;
+  }
+}
+
 .contact-link-row {
   display: flex;
   align-items: center;
@@ -177,6 +208,14 @@ const props = defineProps<{
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+@media (max-width: 800px) {
+  .contact-qr {
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-top: 24px;
+  }
 }
 
 .contact-qr-button {
