@@ -315,15 +315,10 @@ export const siteConfig: SiteConfig = {
                 external: true,
             },
             {
-                label: 'Portfolio',
-                value: 'jsmith3rd.dev',
-                href: 'https://jsmith3rd.dev',
+                label: 'GitHub',
+                value: 'jsmith3rd',
+                href: 'https://github.com/jsmith3rd',
                 external: true,
-            },
-            {
-                label: 'Phone',
-                value: '562-321-5393',
-                href: 'tel:5623215393',
             },
         ],
     },
