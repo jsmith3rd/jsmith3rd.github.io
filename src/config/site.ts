@@ -135,7 +135,7 @@ export const siteConfig: SiteConfig = {
         nameFirstLine: 'John J.',
         nameEmphasis: 'Smith III',
         description:
-            '14+ years leading enterprise and publishing software product at global scale - from user research and roadmap through delivery. Deep technical fluency. Relentlessly outcome-focused.',
+            '14+ years leading enterprise and publishing software at global scale, including tools that power content delivery in 1,000+ languages. From user research and roadmap through delivery. Deep technical fluency. Relentlessly outcome-focused.',
         metrics: [
             { value: '14+', label: 'Years in PM' },
             { value: '28+', label: 'Total in tech' },
