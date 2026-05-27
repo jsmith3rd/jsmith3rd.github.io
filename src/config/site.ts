@@ -135,7 +135,7 @@ export const siteConfig: SiteConfig = {
         nameFirstLine: 'John J.',
         nameEmphasis: 'Smith III',
         description:
-            '14+ years leading enterprise and publishing software at global scale, including tools that power content delivery in 1,000+ languages. From user research and roadmap through delivery. Deep technical fluency. Relentlessly outcome-focused.',
+            '14+ years leading enterprise and publishing software at global scale, including tools that power content delivery in 1,100+ languages. From user research and roadmap through delivery. Deep technical fluency. Relentlessly outcome-focused.',
         metrics: [
             { value: '14+', label: 'Years in PM' },
             { value: '28+', label: 'Total in tech' },
@@ -196,7 +196,7 @@ export const siteConfig: SiteConfig = {
             tag: 'Desktop - UX',
             title: 'Cross-Platform\nWord Processor',
             description:
-                'Built the foundation for translation/localization into 1,000+ languages and global publishing workflows. New Vue / TypeScript / Electron desktop app for macOS and Windows. Proprietary file format, end-user familiarity first.',
+                'Built the foundation for translation/localization into 1,100+ languages and global publishing workflows. New Vue / TypeScript / Electron desktop app for macOS and Windows. Proprietary file format, end-user familiarity first.',
             annotation: 'Vue - Electron - TypeScript',
             number: '02',
             stats: [{ value: '2 OS', label: 'macOS + Windows' }],
@@ -206,7 +206,7 @@ export const siteConfig: SiteConfig = {
             tag: 'AI - Publishing',
             title: 'Microsoft Word\nAdd-in for Authors',
             description:
-                'Enabled translation/localization into 1,000+ languages and global publishing workflows. Abstracts complex XML authoring behind intuitive Content Controls. AI-powered proofreading and structural error detection for non-technical publication authors.',
+                'Enabled translation/localization into 1,100+ languages and global publishing workflows. Abstracts complex XML authoring behind intuitive Content Controls. AI-powered proofreading and structural error detection for non-technical publication authors.',
             annotation: 'Error reduction - Workflow acceleration',
             number: '03',
         },
@@ -245,7 +245,7 @@ export const siteConfig: SiteConfig = {
     about: {
         leadParagraphs: [
             'Senior Technical Product Manager with a rare combination: 14 years of product leadership paired with a hands-on engineering and UX background going back to 1997.',
-            'Currently leading enterprise software that powers the editorial and publishing workflow behind content delivered in 1,000+ languages.',
+            'Currently leading enterprise software that powers the editorial and publishing workflow behind content delivered in 1,100+ languages.',
             'What drives me is staying close to both the people using the software and the people building it. I want to lead products end-to-end, bring out the best in a team, and create something everyone involved is genuinely proud of. That means caring about craft, staying curious, and being the kind of leader people actually want to work with.',
         ],
         tools: [
