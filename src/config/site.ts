@@ -246,7 +246,7 @@ export const siteConfig: SiteConfig = {
         leadParagraphs: [
             'Senior Technical Product Manager with a rare combination: 14 years of product leadership paired with a hands-on engineering and UX background going back to 1997.',
             'Currently leading enterprise software that powers the editorial and publishing workflow behind content delivered in 1,100+ languages.',
-            'What drives me is staying close to both the people using the software and the people building it. I want to lead products end-to-end, bring out the best in a team, and create something everyone involved is genuinely proud of. That means caring about craft, staying curious, and being the kind of leader people actually want to work with.',
+            'What drives me is staying close to both the people using the software and the people building it. I want to lead products end-to-end, bring out the best in a team, and create something everyone involved in is genuinely proud of. That means caring about craft, staying curious, and being the kind of leader people actually want to work with.',
         ],
         tools: [
             'Vue / TypeScript',
