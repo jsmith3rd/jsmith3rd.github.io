@@ -4,7 +4,7 @@ import VCardDownload from './VCardDownload.vue'
 const props = defineProps<{
   isQrZoomed: boolean
   closeQrZoom: () => void
-  toggleQrZoom: (source: 'hero_location_pill' | 'contact_qr') => void
+  toggleQrZoom: (source: 'contact_qr') => void
   vcard: { src: string; alt: string; label: string }
   vcardContact: any
 }>()

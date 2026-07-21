@@ -3,7 +3,7 @@ import { siteConfig } from '../config/site'
 import VCardDownload from './VCardDownload.vue'
 // import removed: no longer needed
 const props = defineProps<{
-  toggleQrZoom: (source: 'hero_location_pill' | 'contact_qr') => void
+  toggleQrZoom: (source: 'contact_qr') => void
 }>()
 </script>
 

@@ -1,24 +1,15 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as CookieConsent from 'vanilla-cookieconsent/dist/cookieconsent.esm.js'
 import ConsentBanner from './components/ConsentBanner.vue'
-import MapModal from './components/MapModal.vue'
 import NavBar from './components/NavBar.vue'
 import HeroSection from './components/HeroSection.vue'
-import MarqueeStrip from './components/MarqueeStrip.vue'
+import HighlightsBand from './components/HighlightsBand.vue'
 import WorkSection from './components/WorkSection.vue'
 import AboutSection from './components/AboutSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import FooterBar from './components/FooterBar.vue'
 import QrOverlay from './components/QrOverlay.vue'
-const isMapOpen = ref(false)
-const openMapModal = () => {
-    trackEvent('location_pill_click', { location: 'Tuxedo Park, NY', source: 'hero_location_pill', maps: 'google' })
-    isMapOpen.value = true
-}
-const closeMapModal = () => {
-    isMapOpen.value = false
-}
 import { siteConfig } from './config/site'
 import { trackEvent, trackPageView } from './lib/analytics'
 
@@ -29,7 +20,7 @@ const trackedScrollDepths = new Set<number>()
 
 let sectionObserver: IntersectionObserver | null = null
 
-const toggleQrZoom = (source: 'hero_location_pill' | 'contact_qr'): void => {
+const toggleQrZoom = (source: 'contact_qr'): void => {
     trackEvent('qr_code_toggle', { expanded: !isQrZoomed.value, source })
     isQrZoomed.value = !isQrZoomed.value
 }
@@ -54,8 +45,6 @@ const getCaseStudyTagClass = (variant?: 'default' | 'gold' | 'muted'): string =>
 
     return 'case-study-tag'
 }
-
-const repeatedMarqueeItems = computed(() => [...siteConfig.marqueeItems, ...siteConfig.marqueeItems])
 
 const sectionIds = ['work', 'about', 'contact'] as const
 
@@ -184,10 +173,9 @@ onBeforeUnmount(() => {
     <main>
         <NavBar :activeSection="activeSection" :getSectionFromHref="getSectionFromHref" :trackEvent="trackEvent" />
 
-        <HeroSection :openMapModal="openMapModal" />
-        <MapModal :open="isMapOpen" @close="closeMapModal" />
+        <HeroSection />
 
-        <MarqueeStrip :repeatedMarqueeItems="repeatedMarqueeItems" />
+        <HighlightsBand :eyebrow="siteConfig.highlights.eyebrow" :items="siteConfig.highlights.items" />
 
         <WorkSection :getCaseStudyTagClass="getCaseStudyTagClass" />
 
