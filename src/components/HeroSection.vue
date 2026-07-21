@@ -1,9 +1,6 @@
 <script setup lang="ts">
 // import removed: no longer needed
 import { siteConfig } from '../config/site'
-const props = defineProps<{
-  openMapModal: () => void
-}>()
 </script>
 
 <template>
@@ -46,12 +43,6 @@ const props = defineProps<{
           </div>
         </div>
       </div>
-
-      <button class="location-pill" type="button" aria-label="Open Tuxedo Park, NY in Google Maps"
-        @click="props.openMapModal">
-        <span class="location-dot"></span>
-        {{ siteConfig.hero.locationPill }}
-      </button>
     </div>
   </section>
 
@@ -292,31 +283,6 @@ const props = defineProps<{
   color: var(--accent);
 }
 
-.location-pill {
-  position: absolute;
-  bottom: 48px;
-  right: 40px;
-  background: var(--paper);
-  border: 0.5px solid var(--rule);
-  border-radius: 100px;
-  padding: 8px 16px;
-  font-size: 12px;
-  color: var(--ink-2);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  z-index: 3;
-  cursor: zoom-in;
-}
-
-.location-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--accent-mid);
-  flex-shrink: 0;
-}
-
 @media (max-width: 1024px) {
   .hero {
     grid-template-columns: 1fr;
@@ -326,15 +292,6 @@ const props = defineProps<{
     min-height: 440px;
     border-left: 0;
     border-top: 0.5px solid var(--rule);
-  }
-
-  .location-pill {
-    position: static;
-    margin: 24px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    width: max-content;
-    font-size: 12px;
   }
 
   .hero-logo-mark {
@@ -359,15 +316,6 @@ const props = defineProps<{
   .hero-divider {
     width: 100%;
     height: 1px;
-  }
-
-  .location-pill {
-    position: static;
-    margin: 24px auto 0 auto;
-    display: flex;
-    justify-content: center;
-    width: max-content;
-    font-size: 11px;
   }
 }
 </style>

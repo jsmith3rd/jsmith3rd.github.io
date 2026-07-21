@@ -68,9 +68,14 @@ export interface SiteConfig {
         }
         specialties: string[]
         highlightedSpecialties: string[]
-        locationPill: string
     }
-    marqueeItems: string[]
+    highlights: {
+        eyebrow: string
+        items: Array<{
+            value: string
+            label: string
+        }>
+    }
     caseStudies: Array<{
         id: string
         tag: string
@@ -131,11 +136,11 @@ export const siteConfig: SiteConfig = {
         href: 'mailto:hello@jsmith3rd.dev',
     },
     hero: {
-        eyebrow: 'Senior Technical Product Manager',
+        eyebrow: 'Senior Technical Product Leader',
         nameFirstLine: 'John J.',
         nameEmphasis: 'Smith III',
         description:
-            '14+ years leading enterprise and publishing software at global scale, including tools that power content delivery in 1,100+ languages. From user research and roadmap through delivery. Deep technical fluency. Relentlessly outcome-focused.',
+            "14+ years leading product for a publishing organization operating in 1,100+ languages — most recently an AI-assisted authoring tool that cut error rates 80% and a cross-platform desktop app built from scratch. 28+ years total across product, engineering, and UX, so the technical conversations aren't new to me.",
         metrics: [
             { value: '14+', label: 'Years in PM' },
             { value: '28+', label: 'Total in tech' },
@@ -152,40 +157,50 @@ export const siteConfig: SiteConfig = {
             },
         },
         specialties: [
+            'People leadership',
             'AI-enabled workflows',
             'Enterprise PM',
-            'Multi-language software support',
-            'Agile / Scrum',
-            'UX direction',
-            'Cross-platform desktop',
-            'Customer discovery',
+            'Global product delivery',
             'Roadmap prioritization',
+            'Customer discovery',
+            'UX direction',
+            'Agile / Scrum',
+            'Cross-platform desktop',
             'Publishing software',
-            'Technical fluency',
         ],
-        highlightedSpecialties: ['AI-enabled workflows', 'Enterprise PM', 'Multi-language software support'],
-        locationPill: 'Tuxedo Park, NY - Remote & flexible',
+        highlightedSpecialties: ['AI-enabled workflows', 'Enterprise PM', 'People leadership'],
     },
-    marqueeItems: [
-        'Product Strategy',
-        'Multi-Vendor AI Integration',
-        'Cross-Platform Desktop',
-        'Agile Transformation',
-        'UX Design Leadership',
-        'Customer Discovery',
-        'Enterprise Publishing',
-        'Distributed Teams',
-    ],
+    highlights: {
+        eyebrow: 'Scope & scale',
+        items: [
+            { value: '9M+', label: 'Core active users reached' },
+            { value: '1,100+', label: 'Languages published in' },
+            { value: '3-6', label: 'Teams led through leads' },
+            { value: '6+', label: 'Concurrent initiatives driven' },
+        ],
+    },
     caseStudies: [
+        {
+            id: 'word-addin',
+            tag: 'AI - Publishing',
+            title: 'Microsoft Word\nAdd-in for Authors',
+            description:
+                "Authors kept hitting the same structural errors, and fixing them meant learning XML markup most would never touch again. I led the add-in that hides that behind plain Content Controls and pushed to get AI proofreading built in - error rates dropped 80%, over half of what's left fixable in one click, as part of an overhaul that cut publication turnaround from months down to as little as three days.",
+            number: '01',
+            featured: true,
+            roleNote: 'Role: product strategy, delivery ownership, AI integration direction',
+            stats: [
+                { value: '80%', label: 'Error rate reduction' },
+                { value: '100+', label: 'Authors relying on it' },
+            ],
+        },
         {
             id: 'ai-integration',
             tag: 'AI - Strategy',
             title: 'Multi-Vendor AI\nIntegration',
             description:
-                'Drove agentic AI into production workflows for hundreds to thousands of users across a global publishing platform - consumed through an internal abstraction layer, vendor-agnostic by design.',
-            number: '01',
-            featured: true,
-            roleNote: 'Role: integration strategy, feature direction, stakeholder-to-vendor translation',
+                "Microsoft Copilot on one side, Amazon's AI infrastructure - OpenAI, Claude - on the other. I drive the integration work across both through an internal abstraction layer, so the org can swap or add vendors without tearing out what's built on top of them - it's the plumbing behind the Word add-in's proofreading.",
+            number: '02',
             stats: [
                 { value: 'Hundreds–Thousands', label: 'Users impacted' },
                 { value: 'Multi-vendor', label: 'Abstraction strategy' },
@@ -196,18 +211,8 @@ export const siteConfig: SiteConfig = {
             tag: 'Desktop - UX',
             title: 'Cross-Platform\nWord Processor',
             description:
-                'Built the foundation for translation/localization into 1,100+ languages and global publishing workflows. New Vue / TypeScript / Electron desktop app for macOS and Windows. Proprietary file format, end-user familiarity first.',
+                "I owned the product definition for a word processor built from scratch - Vue, TypeScript, Electron - for macOS and Windows, wrapped around a file format proprietary to the org. The point was that it had to feel familiar to authors coming from tools they already knew - part of the foundation for localizing content into 1,100+ languages.",
             annotation: 'Vue - Electron - TypeScript',
-            number: '02',
-            stats: [{ value: '2 OS', label: 'macOS + Windows' }],
-        },
-        {
-            id: 'word-addin',
-            tag: 'AI - Publishing',
-            title: 'Microsoft Word\nAdd-in for Authors',
-            description:
-                'Enabled translation/localization into 1,100+ languages and global publishing workflows. Abstracts complex XML authoring behind intuitive Content Controls. AI-powered proofreading and structural error detection for non-technical publication authors.',
-            annotation: 'Error reduction - Workflow acceleration',
             number: '03',
         },
         {
@@ -215,38 +220,41 @@ export const siteConfig: SiteConfig = {
             tag: 'Platform - AI',
             title: 'Documentation Platform\n& AI Enablement',
             description:
-                'Org-wide documentation hub (VuePress / Vite) consolidating schedules, ownership, and skills visibility - foundation for AI fine-tuning across the organization.',
+                "150+ team members and 300+ outside developers needed one place to find who owned what and how things worked, instead of guessing or asking around. I own the org's documentation hub - VuePress, Vite, TypeScript - and it ended up laying the groundwork the org later used for its own agentic AI fine-tuning.",
             annotation: 'VuePress - Vite - TypeScript',
             number: '04',
         },
         {
-            id: 'agile-transformation',
-            tag: 'Leadership',
-            tagVariant: 'muted',
-            title: 'Agile Transformation\n& Delivery Acceleration',
-            description:
-                '4-6x release cadence improvement - from quarterly to bi-weekly. Championed and trained teams across the organization.',
-            number: '05',
-            locked: true,
-            lockLabel: 'Coming soon',
-        },
-        {
             id: 'ios-platform',
             tag: 'Mobile - iOS',
-            tagVariant: 'muted',
             title: 'iOS Mobile\nPublishing Platform',
             description:
-                'Multilingual publication access for 8M+ users worldwide. PM and UX direction across a multi-platform iOS/Android/Windows initiative.',
+                "I managed and helped build an iOS app - Objective-C, UIKit, Core Data - that opened multilingual publication access to 9M+ core active users worldwide, shipping a week ahead of an eight-month deadline. I pushed hard for an MVP-first approach on that launch instead of trying to ship everything at once - it worked well enough to become how the org approached new products going forward.",
+            annotation: 'Objective-C - UIKit - Core Data',
+            number: '05',
+            stats: [
+                { value: '9M+', label: 'Core active users' },
+                { value: '1 wk early', label: 'Ahead of deadline' },
+            ],
+        },
+        {
+            id: 'agile-transformation',
+            tag: 'Leadership',
+            title: 'Agile Transformation\n& Delivery Acceleration',
+            description:
+                'When I moved into product management here, releases went out every three or four months and the open stakeholder feedback queue had grown into the hundreds. I championed Agile practices, trained the team on them, and got us releasing monthly, then bi-weekly - a 4-6x improvement - while working that backlog down to under 50 open items.',
             number: '06',
-            locked: true,
-            lockLabel: 'Coming soon',
+            stats: [
+                { value: '4-6x', label: 'Faster release cadence' },
+                { value: '<50', label: 'Open items (from 100s)' },
+            ],
         },
     ],
     about: {
         leadParagraphs: [
-            'Senior Technical Product Manager with a rare combination: 14 years of product leadership paired with a hands-on engineering and UX background going back to 1997.',
+            'Senior Technical Product Leader with a rare combination: 14 years of product leadership paired with a hands-on engineering and UX background going back to 1997.',
             'Currently leading enterprise software that powers the editorial and publishing workflow behind content delivered in 1,100+ languages.',
-            'What drives me is staying close to both the people using the software and the people building it. I want to lead products end-to-end, bring out the best in a team, and create something everyone involved in is genuinely proud of. That means caring about craft, staying curious, and being the kind of leader people actually want to work with.',
+            'What drives me is staying close to both the people using the software and the people building it. I want to lead products end-to-end, bring out the best in a team, and create something everyone involved is genuinely proud of. That means caring about craft, staying curious, and being the kind of leader people actually want to work with.',
         ],
         tools: [
             'Vue / TypeScript',
@@ -264,7 +272,7 @@ export const siteConfig: SiteConfig = {
                 role: 'Senior Technical Product Manager',
                 organization: 'Watchtower - Global publishing organization',
                 detail:
-                    'End-to-end product strategy across enterprise publishing software. Team of up to 14, 6+ concurrent initiatives, 90%+ quarterly delivery.',
+                    'End-to-end product strategy across enterprise publishing software. Second-line leadership across 3-6 teams, 6+ concurrent initiatives, 90%+ quarterly delivery.',
             },
             {
                 years: '2011-\n2018',
@@ -285,7 +293,7 @@ export const siteConfig: SiteConfig = {
                 role: 'Senior Systems Engineer & UX Designer',
                 organization: 'MSC.Software - Santa Ana, CA',
                 detail:
-                    "Linux Journal Editors' Choice Award 2003 - sole designer of Webmin UI. Strategic partnerships with Webmin and Sharp.",
+                    "Proposed and built a full-stack Sharp Zaurus cluster-monitoring platform, unassigned - turned MSC into a formal Sharp technology partner. Also sole designer of Webmin's Linux Journal Editors' Choice-winning UI.",
             },
             {
                 years: '1997-\n2001',
@@ -301,7 +309,7 @@ export const siteConfig: SiteConfig = {
         headingLineOne: 'Open to the',
         headingEmphasis: 'right role.',
         subtitle:
-            'Senior product leadership in enterprise software, AI-enabled workflows, developer tooling, or publishing and content platforms. Remote and location-flexible.',
+            'Senior product leadership in enterprise software, AI-enabled workflows, developer tooling, or publishing and content platforms. Remote.',
         links: [
             {
                 label: 'Email',
@@ -324,7 +332,7 @@ export const siteConfig: SiteConfig = {
     },
     footer: {
         copyright: '© 2026 John J. Smith III',
-        location: 'Tuxedo Park, NY - Remote & location-flexible',
+        location: 'Tuxedo Park, NY - Remote',
     },
     vcard: {
         src: '/vcard.png',
@@ -336,7 +344,7 @@ export const siteConfig: SiteConfig = {
         fullName: 'John Smith III',
         firstName: 'John',
         lastName: 'Smith III',
-        title: 'Senior Technical Product Manager',
+        title: 'Senior Technical Product Leader',
         organization: 'Watchtower',
         email: 'hello@jsmith3rd.dev',
         website: 'https://jsmith3rd.dev',

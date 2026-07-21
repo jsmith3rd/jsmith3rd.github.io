@@ -145,14 +145,6 @@ nav {
 	border-bottom: 0.5px solid var(--rule);
 }
 
-.location-dot {
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background: var(--accent-mid);
-	flex-shrink: 0;
-}
-
 .section {
 	padding: 100px 48px;
 	border-top: 0.5px solid var(--rule);
@@ -412,35 +404,6 @@ nav {
 	z-index: 1;
 }
 
-.marquee-strip {
-	overflow: hidden;
-	border-top: 0.5px solid var(--rule);
-	border-bottom: 0.5px solid var(--rule);
-	padding: 14px 0;
-	white-space: nowrap;
-	background: var(--paper-2);
-}
-
-.marquee-inner {
-	display: inline-block;
-	animation: marquee 28s linear infinite;
-}
-
-.marquee-item {
-	display: inline-block;
-	font-family: "DM Mono", monospace;
-	font-size: 11px;
-	letter-spacing: 0.12em;
-	color: var(--ink-3);
-	text-transform: uppercase;
-	margin: 0 32px;
-}
-
-.marquee-item span {
-	color: var(--accent-mid);
-	margin-right: 8px;
-}
-
 .annotation {
 	display: inline-flex;
 	align-items: center;
@@ -542,16 +505,6 @@ nav {
 	--cc-btn-border-radius: 2px;
 }
 
-@keyframes marquee {
-	from {
-		transform: translateX(0);
-	}
-
-	to {
-		transform: translateX(-50%);
-	}
-}
-
 @media (max-width: 1024px) {
 	nav {
 		padding: 0 24px;
@@ -633,15 +586,6 @@ nav {
 	.hero-divider {
 		width: 100%;
 		height: 1px;
-	}
-
-	.location-pill {
-		position: static;
-		margin: 24px auto 0 auto;
-		display: flex;
-		justify-content: center;
-		width: max-content;
-		font-size: 11px;
 	}
 
 	.case-study {
