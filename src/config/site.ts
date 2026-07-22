@@ -185,7 +185,7 @@ export const siteConfig: SiteConfig = {
             tag: 'AI - Publishing',
             title: 'Microsoft Word\nAdd-in for Authors',
             description:
-                "Authors kept hitting the same structural errors, and fixing them meant learning XML markup most would never touch again. I led the add-in that hides that behind plain Content Controls and pushed to get AI proofreading built in - error rates dropped 80%, over half of what's left fixable in one click, as part of an overhaul that cut publication turnaround from months down to as little as three days.",
+                "Authors kept hitting the same structural errors, and fixing them meant learning custom markup most would never touch again. I led the add-in that hides that behind plain Content Controls and pushed to get AI proofreading built in - error rates dropped 80%, over half of what's left fixable in one click, as part of an overhaul that cut publication turnaround from months down to as little as three days.",
             number: '01',
             featured: true,
             roleNote: 'Role: product strategy, delivery ownership, AI integration direction',
