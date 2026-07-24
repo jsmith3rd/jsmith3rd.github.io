@@ -140,7 +140,7 @@ export const siteConfig: SiteConfig = {
         nameFirstLine: 'John J.',
         nameEmphasis: 'Smith III',
         description:
-            "14+ years leading product for a publishing organization operating in 1,100+ languages — most recently an AI-assisted authoring tool that cut error rates 80% and a cross-platform desktop app built from scratch. 28+ years total across product, engineering, and UX, so the technical conversations aren't new to me.",
+            "14+ years leading product for a publishing organization operating in 1,100+ languages — most recently an AI-assisted authoring tool that cut error rates 80% and a cross-platform desktop app built from scratch. 28+ years total across product, engineering, and UX — including 11+ years hands-on in software architecture — so the technical conversations aren't new to me.",
         metrics: [
             { value: '14+', label: 'Years in PM' },
             { value: '28+', label: 'Total in tech' },
@@ -160,6 +160,7 @@ export const siteConfig: SiteConfig = {
             'People leadership',
             'AI-enabled workflows',
             'Enterprise PM',
+            'Software architecture',
             'Global product delivery',
             'Roadmap prioritization',
             'Customer discovery',
@@ -168,7 +169,12 @@ export const siteConfig: SiteConfig = {
             'Cross-platform desktop',
             'Publishing software',
         ],
-        highlightedSpecialties: ['AI-enabled workflows', 'Enterprise PM', 'People leadership'],
+        highlightedSpecialties: [
+            'AI-enabled workflows',
+            'Enterprise PM',
+            'People leadership',
+            'Software architecture',
+        ],
     },
     highlights: {
         eyebrow: 'Scope & scale',
@@ -252,7 +258,7 @@ export const siteConfig: SiteConfig = {
     ],
     about: {
         leadParagraphs: [
-            'Senior Technical Product Leader with a rare combination: 14 years of product leadership paired with a hands-on engineering and UX background going back to 1997.',
+            'Senior Technical Product Leader with a rare combination: 14 years of product leadership paired with a hands-on engineering, software architecture, and UX background going back to 1997 — including 11+ years hands-on as a software architect.',
             'Currently leading enterprise software that powers the editorial and publishing workflow behind content delivered in 1,100+ languages.',
             'What drives me is staying close to both the people using the software and the people building it. I want to lead products end-to-end, bring out the best in a team, and create something everyone involved is genuinely proud of. That means caring about craft, staying curious, and being the kind of leader people actually want to work with.',
         ],
@@ -272,21 +278,21 @@ export const siteConfig: SiteConfig = {
                 role: 'Senior Technical Product Manager',
                 organization: 'Watchtower - Global publishing organization',
                 detail:
-                    'End-to-end product strategy across enterprise publishing software. Second-line leadership across 3-6 teams, 6+ concurrent initiatives, 90%+ quarterly delivery.',
+                    'End-to-end product strategy across enterprise publishing software. Second-line leadership across 3-6 teams, 6+ concurrent initiatives, 90%+ quarterly delivery, driven by ~40 user interviews a quarter and a monthly advisory group. Continues to shape and validate software architecture direction, a throughline from an earlier hands-on architect role on the same team.',
             },
             {
                 years: '2011-\n2018',
                 role: 'Product Manager',
                 organization: 'Watchtower',
                 detail:
-                    'Introduced Agile practices. Drove 4-6x release cadence improvement. Led iOS mobile publishing platform and desktop modernization.',
+                    'Introduced Agile practices. Drove 4-6x release cadence improvement. Led iOS mobile publishing platform and desktop modernization. Scaled cross-region data sync 20x, from 1TB to 20TB, over two years.',
             },
             {
                 years: '2010-\n2011',
                 role: 'Full-Stack Developer & UX Designer',
                 organization: 'Watchtower',
                 detail:
-                    'Built foundational enterprise service platform and REST infrastructure still used org-wide.',
+                    'Co-led a modular, hot-swappable plugin architecture for a foundational enterprise service platform and REST infrastructure still used org-wide - 99.9% uptime with zero major service-caused outages.',
             },
             {
                 years: '2001-\n2009',
