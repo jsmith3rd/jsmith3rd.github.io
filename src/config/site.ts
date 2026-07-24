@@ -278,7 +278,7 @@ export const siteConfig: SiteConfig = {
                 role: 'Senior Technical Product Manager',
                 organization: 'Watchtower - Global publishing organization',
                 detail:
-                    'End-to-end product strategy across enterprise publishing software. Second-line leadership across 3-6 teams, 6+ concurrent initiatives, 90%+ quarterly delivery, driven by ~40 user interviews a quarter and a monthly advisory group. Continues to shape and validate software architecture direction, a throughline from an earlier hands-on architect role on the same team.',
+                    'End-to-end product strategy across enterprise publishing software. Second-line leadership across 3-6 teams, 6+ concurrent initiatives, 90%+ quarterly delivery, driven by ~40 user interviews a quarter and a monthly advisory group. Continues to shape and validate software architecture direction, a through line from an earlier hands-on architect role on the same team.',
             },
             {
                 years: '2011-\n2018',
