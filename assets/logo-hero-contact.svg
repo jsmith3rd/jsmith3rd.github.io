@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg width="100%" height="100%" viewBox="0 0 400 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
-    <g transform="matrix(1,0,0,1,89.5,300)">
-        <text x="0px" y="0px" style="font-family:'DejaVuSerif-Bold', 'DejaVu Serif', serif;font-weight:700;font-size:210px;fill:white;">J</text>
-    </g>
-    <g transform="matrix(1,0,0,1,185.5,221)">
-        <text x="0px" y="0px" style="font-family:'DejaVuSerif-Bold', 'DejaVu Serif', serif;font-weight:700;font-size:98px;fill:white;stroke:white;stroke-width:5.6px;">I<tspan x="48.586px 97.172px " y="0px 0px ">II</tspan></text>
-    </g>
-    <g transform="matrix(1,0,0,1,199.37,366)">
-        <g>
-            <g transform="matrix(1,0,0,1,-42.969,0)">
-                <text x="0px" y="0px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:14px;fill:white;fill-opacity:0.5;">J</text>
-            </g>
-            <g transform="matrix(1,0,0,1,-33.28,0)">
-                <text x="0px" y="0px" style="font-family:'Menlo-Regular', 'Menlo', monospace;font-size:14px;fill:white;fill-opacity:0.5;">S<tspan x="9.688px 19.377px 29.066px 38.754px 48.443px 58.132px 67.82px " y="0px 0px 0px 0px 0px 0px 0px ">MITH3RD</tspan></text>
-            </g>
-        </g>
-    </g>
+    <path d="M400,4L400,396C400,398.208 398.208,400 396,400L4,400C1.792,400 0,398.208 0,396L0,4C0,1.792 1.792,0 4,0L396,0C398.208,0 400,1.792 400,4Z" style="fill:none;"/>
+    <path d="M372,30L372,370C372,371.104 371.104,372 370,372L30,372C28.896,372 28,371.104 28,370L28,30C28,28.896 28.896,28 30,28L370,28C371.104,28 372,28.896 372,30Z" style="fill:none;stroke:white;stroke-opacity:0.18;stroke-width:1px;"/>
+    <path d="M360,41L360,359C360,359.552 359.552,360 359,360L41,360C40.448,360 40,359.552 40,359L40,41C40,40.448 40.448,40 41,40L359,40C359.552,40 360,40.448 360,41Z" style="fill:none;stroke:white;stroke-opacity:0.08;stroke-width:0.5px;"/>
+    <!-- monogram: J + III, real brand font (DM Serif Display), top-aligned and evenly spaced -->
+    <text x="109" y="300" style="font-family:'DM Serif Display', serif;font-size:210px;fill:white;">J</text>
+    <text x="198" y="228" style="font-family:'DM Serif Display', serif;font-size:98px;letter-spacing:2px;fill:white;stroke:white;stroke-width:2.2px;stroke-linejoin:round;">III</text>
+    <!-- wordmark, real brand mono font (DM Mono) -->
+    <text x="200" y="370" style="font-family:'DM Mono', monospace;font-size:14px;letter-spacing:2.5px;fill:white;fill-opacity:0.5;text-anchor:middle;">JSMITH3RD</text>
 </svg>
