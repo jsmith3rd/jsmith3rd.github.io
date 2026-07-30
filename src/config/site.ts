@@ -315,7 +315,7 @@ export const siteConfig: SiteConfig = {
         headingLineOne: 'Open to the',
         headingEmphasis: 'right role.',
         subtitle:
-            'Senior product leadership in enterprise software, AI-enabled workflows, developer tooling, or publishing and content platforms. Remote.',
+            'Senior product leadership in enterprise software, AI-enabled workflows, developer tooling, or publishing and content platforms.',
         links: [
             {
                 label: 'Email',
@@ -338,7 +338,7 @@ export const siteConfig: SiteConfig = {
     },
     footer: {
         copyright: '© 2026 John J. Smith III',
-        location: 'Tuxedo Park, NY - Remote',
+        location: 'Tuxedo Park, NY',
     },
     vcard: {
         src: '/vcard.png',
