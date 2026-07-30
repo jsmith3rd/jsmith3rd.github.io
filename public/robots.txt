@@ -1,5 +1,8 @@
+User-agent: LinkedInBot
+Allow: /
+
 User-agent: *
-Disallow: /
+Allow: /
 
 User-agent: ChatGPT-User
 Disallow: /
@@ -26,9 +29,6 @@ User-agent: CCBot
 Disallow: /
 
 User-agent: cohere-ai
-Disallow: /
-
-User-agent: CCBot
 Disallow: /
 
 User-agent: omgilibot
