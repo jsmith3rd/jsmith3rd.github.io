@@ -13,7 +13,7 @@ import { siteConfig } from '../config/site'
     <div class="about-grid">
       <div class="about-left">
         <div class="photo-placeholder">
-          <img src="/profile_photo.jpg" alt="John J. Smith III profile photo" class="profile-photo-img fill"
+          <img src="/profile-photo-green.png" alt="John J. Smith III profile photo" class="profile-photo-img fill"
             loading="lazy" decoding="async" />
         </div>
         <p v-for="paragraph in siteConfig.about.leadParagraphs" :key="paragraph" class="about-body">{{ paragraph }}</p>
