@@ -6,27 +6,29 @@ import { siteConfig } from '../config/site'
 <template>
   <section class="hero">
     <div class="hero-left">
-      <p class="hero-eyebrow">{{ siteConfig.hero.eyebrow }}</p>
-      <h1 class="hero-name">{{ siteConfig.hero.nameFirstLine }}<br /><em>{{ siteConfig.hero.nameEmphasis }}</em></h1>
-      <p class="hero-title">{{ siteConfig.hero.description }}</p>
+      <div class="hero-left-inner">
+        <p class="hero-eyebrow">{{ siteConfig.hero.eyebrow }}</p>
+        <h1 class="hero-name">{{ siteConfig.hero.nameFirstLine }}<br /><em>{{ siteConfig.hero.nameEmphasis }}</em></h1>
+        <p class="hero-title">{{ siteConfig.hero.description }}</p>
 
-      <div class="hero-meta">
-        <template v-for="(metric, index) in siteConfig.hero.metrics" :key="metric.label">
-          <div class="hero-meta-item">
-            <span class="meta-num">{{ metric.value }}</span>
-            <span class="meta-label">{{ metric.label }}</span>
-          </div>
-          <div v-if="index < siteConfig.hero.metrics.length - 1" class="hero-divider"></div>
-        </template>
-      </div>
+        <div class="hero-meta">
+          <template v-for="(metric, index) in siteConfig.hero.metrics" :key="metric.label">
+            <div class="hero-meta-item">
+              <span class="meta-num">{{ metric.value }}</span>
+              <span class="meta-label">{{ metric.label }}</span>
+            </div>
+            <div v-if="index < siteConfig.hero.metrics.length - 1" class="hero-divider"></div>
+          </template>
+        </div>
 
-      <div class="hero-actions">
-        <a :href="siteConfig.hero.actions.primary.href" class="btn-primary">
-          {{ siteConfig.hero.actions.primary.label }}
-        </a>
-        <a :href="siteConfig.hero.actions.ghost.href" class="btn-ghost">
-          {{ siteConfig.hero.actions.ghost.label }}
-        </a>
+        <div class="hero-actions">
+          <a :href="siteConfig.hero.actions.primary.href" class="btn-primary">
+            {{ siteConfig.hero.actions.primary.label }}
+          </a>
+          <a :href="siteConfig.hero.actions.ghost.href" class="btn-ghost">
+            {{ siteConfig.hero.actions.ghost.label }}
+          </a>
+        </div>
       </div>
     </div>
 
@@ -59,12 +61,18 @@ import { siteConfig } from '../config/site'
 }
 
 .hero-left {
-  padding: 80px 48px;
+  padding: clamp(80px, 9vw, 160px) clamp(48px, 6vw, 120px);
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 2;
+}
+
+.hero-left-inner {
+  width: 100%;
+  max-width: 560px;
 }
 
 .hero-eyebrow {
@@ -209,8 +217,8 @@ import { siteConfig } from '../config/site'
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 320px;
-  height: 310px;
+  width: clamp(320px, 26vw, 460px);
+  height: clamp(310px, 24vw, 420px);
   border: 1.5px solid var(--rule);
   border-radius: 12px;
   z-index: 1;
@@ -228,19 +236,12 @@ import { siteConfig } from '../config/site'
   min-height: 340px;
 }
 
-@media (max-width: 1024px) {
-  .skills-card-bg {
-    width: 320px;
-    height: 310px;
-  }
-}
-
 .skills-card {
   background: var(--paper);
   border: 0.5px solid var(--rule);
   border-radius: 2px;
-  padding: 28px;
-  width: 280px;
+  padding: clamp(28px, 2.2vw, 40px);
+  width: clamp(280px, 22vw, 400px);
   position: relative;
   z-index: 2;
   margin: 0 auto;
