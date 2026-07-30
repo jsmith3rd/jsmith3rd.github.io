@@ -59,7 +59,7 @@ export const faviconPlugin = (): Plugin => {
         async configResolved(config) {
             rootDir = config.root
             outDir = path.resolve(rootDir, config.build.outDir)
-            sourceSvgPath = path.join(rootDir, 'public', 'logo-square.svg')
+            sourceSvgPath = path.join(rootDir, 'public', 'logo-circle.svg')
             await ensureSvgExists(sourceSvgPath)
             const { mtimeMs } = await stat(sourceSvgPath)
             faviconVersion = Math.floor(mtimeMs).toString()
