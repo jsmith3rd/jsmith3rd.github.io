@@ -5,7 +5,7 @@ User-agent: *
 Allow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: GPTBot
 Disallow: /
@@ -17,13 +17,16 @@ User-agent: anthropic-ai
 Disallow: /
 
 User-agent: Claude-Web
-Disallow: /
+Allow: /
+
+User-agent: Claude-User
+Allow: /
 
 User-agent: Twitterbot
-Disallow: /
+Allow: /
 
 User-agent: FacebookBot
-Disallow: /
+Allow: /
 
 User-agent: CCBot
 Disallow: /
@@ -44,7 +47,10 @@ User-agent: Applebot
 Disallow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
 
 User-agent: YouBot
 Disallow: /
