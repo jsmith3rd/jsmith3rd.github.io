@@ -309,7 +309,7 @@ export const siteConfig: SiteConfig = {
                 role: 'Full-Stack Developer & UX Designer',
                 organization: 'Watchtower',
                 detail:
-                    'Co-led a modular, hot-swappable plugin architecture for a foundational enterprise service platform and REST infrastructure still used org-wide - 99.9% uptime with zero major service-caused outages.',
+                    'Led a modular, hot-swappable plugin architecture for a foundational enterprise service platform and REST infrastructure still used org-wide - 99.9% uptime with zero major service-caused outages.',
             },
             {
                 years: '2001-\n2009',
