@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import * as CookieConsent from 'vanilla-cookieconsent/dist/cookieconsent.esm.js'
 import ConsentBanner from './components/ConsentBanner.vue'
 import NavBar from './components/NavBar.vue'
@@ -10,15 +10,19 @@ import AboutSection from './components/AboutSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import FooterBar from './components/FooterBar.vue'
 import QrOverlay from './components/QrOverlay.vue'
+import CaseStudyDrawer from './components/CaseStudyDrawer.vue'
 import { siteConfig } from './config/site'
 import { trackEvent, trackPageView } from './lib/analytics'
 
 const isQrZoomed = ref(false)
+const activeCaseStudyIndex = ref<number | null>(null)
 const activeSection = ref('work')
 const viewedSections = new Set<string>()
 const trackedScrollDepths = new Set<number>()
+const isOverlayOpen = computed(() => isQrZoomed.value || activeCaseStudyIndex.value !== null)
 
 let sectionObserver: IntersectionObserver | null = null
+let lastFocusedElement: HTMLElement | null = null
 
 const toggleQrZoom = (source: 'contact_qr'): void => {
     trackEvent('qr_code_toggle', { expanded: !isQrZoomed.value, source })
@@ -28,6 +32,42 @@ const toggleQrZoom = (source: 'contact_qr'): void => {
 const closeQrZoom = (): void => {
     trackEvent('qr_code_toggle', { expanded: false, source: 'overlay_close' })
     isQrZoomed.value = false
+}
+
+const openCaseStudy = (id: string): void => {
+    const index = siteConfig.caseStudies.findIndex((study) => study.id === id)
+    if (index === -1) {
+        return
+    }
+
+    lastFocusedElement = document.activeElement as HTMLElement | null
+    activeCaseStudyIndex.value = index
+    trackEvent('case_study_open', { case_study_id: id })
+}
+
+const closeCaseStudy = (): void => {
+    if (activeCaseStudyIndex.value === null) {
+        return
+    }
+
+    trackEvent('case_study_close', { case_study_id: siteConfig.caseStudies[activeCaseStudyIndex.value].id })
+    activeCaseStudyIndex.value = null
+    lastFocusedElement?.focus()
+    lastFocusedElement = null
+}
+
+const stepCaseStudy = (direction: 1 | -1): void => {
+    if (activeCaseStudyIndex.value === null) {
+        return
+    }
+
+    const total = siteConfig.caseStudies.length
+    const nextIndex = (activeCaseStudyIndex.value + direction + total) % total
+    activeCaseStudyIndex.value = nextIndex
+    trackEvent('case_study_navigate', {
+        case_study_id: siteConfig.caseStudies[nextIndex].id,
+        direction: direction === 1 ? 'next' : 'previous',
+    })
 }
 
 const openPrivacyPreferences = (): void => {
@@ -149,15 +189,28 @@ const setupSectionObserver = (): void => {
     }
 }
 
-watch(isQrZoomed, (zoomed) => {
-    document.body.style.overflow = zoomed ? 'hidden' : ''
+watch(isOverlayOpen, (open) => {
+    document.body.style.overflow = open ? 'hidden' : ''
 })
+
+const handleKeydown = (event: KeyboardEvent): void => {
+    if (event.key !== 'Escape') {
+        return
+    }
+
+    if (activeCaseStudyIndex.value !== null) {
+        closeCaseStudy()
+    } else if (isQrZoomed.value) {
+        closeQrZoom()
+    }
+}
 
 onMounted(() => {
     setupSectionObserver()
     updateActiveSection()
     window.addEventListener('scroll', handleWindowScroll, { passive: true })
     window.addEventListener('hashchange', handleHashChange)
+    window.addEventListener('keydown', handleKeydown)
 })
 
 onBeforeUnmount(() => {
@@ -166,6 +219,7 @@ onBeforeUnmount(() => {
     sectionObserver = null
     window.removeEventListener('scroll', handleWindowScroll)
     window.removeEventListener('hashchange', handleHashChange)
+    window.removeEventListener('keydown', handleKeydown)
 })
 </script>
 
@@ -177,7 +231,7 @@ onBeforeUnmount(() => {
 
         <HighlightsBand :eyebrow="siteConfig.highlights.eyebrow" :items="siteConfig.highlights.items" />
 
-        <WorkSection :getCaseStudyTagClass="getCaseStudyTagClass" />
+        <WorkSection :getCaseStudyTagClass="getCaseStudyTagClass" :openCaseStudy="openCaseStudy" />
 
         <AboutSection />
 
@@ -189,5 +243,8 @@ onBeforeUnmount(() => {
 
         <QrOverlay :isQrZoomed="isQrZoomed" :closeQrZoom="closeQrZoom" :toggleQrZoom="toggleQrZoom"
             :vcard="siteConfig.vcard" :vcardContact="siteConfig.vcardContact" />
+
+        <CaseStudyDrawer :activeIndex="activeCaseStudyIndex" :closeDrawer="closeCaseStudy" :stepCaseStudy="stepCaseStudy"
+            :getCaseStudyTagClass="getCaseStudyTagClass" />
     </main>
 </template>

@@ -233,19 +233,4 @@ const props = defineProps<{
   display: block;
   border-radius: 2px;
 }
-
-.vcard-download {
-  margin-top: 0;
-  display: inline-flex;
-  align-self: center;
-  padding: 8px 14px;
-  border-radius: 100px;
-  border: 1px solid rgba(200, 221, 209, 0.4);
-  color: var(--paper);
-  text-decoration: none;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 </style>

@@ -58,6 +58,7 @@ import { siteConfig } from '../config/site'
   font-size: 16px;
   line-height: 1.75;
   color: var(--ink-2);
+  max-width: 90%;
   margin-bottom: 24px;
 }
 
@@ -121,6 +122,7 @@ import { siteConfig } from '../config/site'
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 32px;
+  max-width: 90%;
 }
 
 .tool-chip {
@@ -139,6 +141,14 @@ import { siteConfig } from '../config/site'
 
   .about-left {
     position: static;
+  }
+
+  .about-body {
+    max-width: 100%;
+  }
+
+  .tools-row {
+    max-width: 100%;
   }
 }
 
