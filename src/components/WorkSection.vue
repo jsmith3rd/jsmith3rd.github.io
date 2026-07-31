@@ -3,7 +3,12 @@ import { siteConfig } from '../config/site'
 
 const props = defineProps<{
   getCaseStudyTagClass: (variant?: 'default' | 'gold' | 'muted') => string
+  openCaseStudy: (id: string) => void
 }>()
+
+const nonFeaturedStudies = siteConfig.caseStudies.filter((study) => !study.featured)
+const trailingSingleCardId =
+  nonFeaturedStudies.length % 2 === 1 ? nonFeaturedStudies[nonFeaturedStudies.length - 1].id : null
 </script>
 
 <template>
@@ -16,7 +21,12 @@ const props = defineProps<{
     </div>
     <div class="work-grid">
       <article v-for="study in siteConfig.caseStudies" :key="study.id"
-        :class="['case-study', { featured: study.featured, locked: study.locked }]">
+        :class="['case-study', { featured: study.featured, locked: study.locked, 'span-row': study.id === trailingSingleCardId }]"
+        :tabindex="study.locked ? undefined : 0" :role="study.locked ? undefined : 'button'"
+        :aria-haspopup="study.locked ? undefined : 'dialog'"
+        @click="!study.locked && props.openCaseStudy(study.id)"
+        @keydown.enter="!study.locked && props.openCaseStudy(study.id)"
+        @keydown.space.prevent="!study.locked && props.openCaseStudy(study.id)">
         <div>
           <span :class="props.getCaseStudyTagClass(study.tagVariant)">{{ study.tag }}</span>
           <h3 class="case-study-title">{{ study.title }}</h3>
@@ -27,16 +37,13 @@ const props = defineProps<{
                 <span class="stat-num">{{ stat.value }}</span>
                 <span class="stat-label">{{ stat.label }}</span>
               </div>
-              <div v-if="index < study.stats.length - 1" class="hero-divider case-study-divider"></div>
+              <div v-if="index < study.stats.length - 1" class="case-study-divider"></div>
             </template>
           </div>
         </div>
-        <div v-if="study.featured" class="featured-study-meta">
-          <span class="case-study-num">{{ study.number }}</span>
-          <p class="case-study-role">{{ study.roleNote }}</p>
-        </div>
-        <span v-if="study.annotation && !study.locked" class="annotation"><span class="annotation-dot"></span>{{
-          study.annotation }}</span>
+        <span v-if="study.stack && !study.locked" class="stack">
+          <span class="stack-label">Stack:</span>{{ study.stack }}
+        </span>
         <span v-if="study.locked" class="cs-lock">⊘ {{ study.lockLabel }}</span>
         <span v-if="!study.locked" class="case-study-arrow">↗</span>
         <span class="case-study-bg-num">{{ study.number }}</span>
@@ -57,64 +64,33 @@ const props = defineProps<{
   padding: 48px;
   position: relative;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 540px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: background 0.2s;
+  cursor: pointer;
 }
 
 .case-study:hover {
   background: var(--paper-3);
 }
 
+.case-study:focus-visible {
+  outline: 2px solid var(--accent-mid);
+  outline-offset: -2px;
+}
+
+.case-study.locked {
+  cursor: default;
+}
+
 .case-study.featured {
   grid-column: span 2;
-  min-height: 280px;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 80px;
 }
 
-.featured-study-meta {
-  max-width: 260px;
-}
-
-.case-study-role {
-  font-size: 13px;
-  color: var(--ink-3);
-  margin-top: 8px;
-  line-height: 1.5;
-}
-
-.case-study-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  color: var(--ink-3);
-}
-
-.case-study-tag {
-  display: inline-block;
-  background: var(--accent-lt);
-  color: var(--accent);
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  border-radius: 2px;
-  margin-bottom: 16px;
-}
-
-.case-study-tag.gold {
-  background: var(--gold-lt);
-  color: var(--gold);
-}
-
-.case-study-tag.muted {
-  background: var(--paper-3);
-  color: var(--ink-3);
+.case-study.span-row {
+  grid-column: span 2;
 }
 
 .case-study-title {
@@ -160,27 +136,10 @@ const props = defineProps<{
 }
 
 .case-study-divider {
+  width: 1px;
   height: 36px;
-}
-
-.case-study-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.stat-num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 20px;
-  color: var(--ink);
-}
-
-.stat-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--ink-3);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  background: var(--rule);
+  flex-shrink: 0;
 }
 
 .case-study-bg-num {
@@ -199,31 +158,14 @@ const props = defineProps<{
   opacity: 0.6;
 }
 
-.cs-lock {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--ink-3);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-top: auto;
-  border-top: 0.5px solid var(--rule);
-  padding-top: 12px;
-}
-
 @media (max-width: 1024px) {
   .work-grid {
     grid-template-columns: 1fr;
   }
 
-  .case-study.featured {
+  .case-study.featured,
+  .case-study.span-row {
     grid-column: span 1;
-    min-height: 360px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 32px;
   }
 }
 

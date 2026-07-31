@@ -66,7 +66,10 @@ export interface SiteConfig {
                 href: string
             }
         }
-        specialties: string[]
+        specialtyGroups: Array<{
+            label: string
+            items: string[]
+        }>
         highlightedSpecialties: string[]
     }
     highlights: {
@@ -82,7 +85,8 @@ export interface SiteConfig {
         tagVariant?: 'default' | 'gold' | 'muted'
         title: string
         description: string
-        annotation?: string
+        scope?: string
+        stack?: string
         number: string
         featured?: boolean
         locked?: boolean
@@ -140,7 +144,7 @@ export const siteConfig: SiteConfig = {
         nameFirstLine: 'John J.',
         nameEmphasis: 'Smith III',
         description:
-            "14+ years leading product for a publishing organization operating in 1,100+ languages — most recently an AI-assisted authoring tool that cut error rates 80% and a cross-platform desktop app built from scratch. 28+ years total across product, engineering, and UX — including 11+ years hands-on in software architecture — so the technical conversations aren't new to me.",
+            "I lead product for a publishing organization operating in 1,100+ languages — most recently an AI-assisted authoring tool that cut error rates 80%, and a cross-platform desktop app built from scratch. My background spans product, engineering, and UX, including 11+ years hands-on in software architecture, so the technical conversations aren't new to me.",
         metrics: [
             { value: '14+', label: 'Years in PM' },
             { value: '28+', label: 'Total in tech' },
@@ -156,25 +160,41 @@ export const siteConfig: SiteConfig = {
                 href: '#about',
             },
         },
-        specialties: [
-            'People leadership',
-            'AI-enabled workflows',
-            'Enterprise PM',
-            'Software architecture',
-            'Global product delivery',
-            'Roadmap prioritization',
-            'Customer discovery',
-            'Change management & training',
-            'UX direction',
-            'Agile / Scrum',
-            'Cross-platform desktop',
-            'Publishing software',
+        specialtyGroups: [
+            {
+                label: 'Leadership',
+                items: [
+                    'People leadership',
+                    'Enterprise PM',
+                    'Roadmap prioritization',
+                    'Change management & training',
+                    'Agile / Scrum',
+                ],
+            },
+            {
+                label: 'Technical',
+                items: [
+                    'AI-enabled workflows',
+                    'Software architecture',
+                    'UX direction',
+                    'Cross-platform desktop',
+                ],
+            },
+            {
+                label: 'Domain',
+                items: [
+                    'Global product delivery',
+                    'Customer discovery',
+                    'Publishing software',
+                ],
+            },
         ],
         highlightedSpecialties: [
-            'AI-enabled workflows',
-            'Enterprise PM',
             'People leadership',
+            'Enterprise PM',
+            'AI-enabled workflows',
             'Software architecture',
+            'Global product delivery',
         ],
     },
     highlights: {
@@ -193,6 +213,8 @@ export const siteConfig: SiteConfig = {
             title: 'Microsoft Word\nAdd-in for Authors',
             description:
                 "Authors kept hitting the same structural errors, and fixing them meant learning custom markup most would never touch again. I led the add-in that hides that behind plain Content Controls and pushed to get AI proofreading built in - error rates dropped 80%, over half of what's left fixable in one click, as part of an overhaul that cut publication turnaround from months down to as little as three days.",
+            scope:
+                'The two structural gaps behind the errors: an incomplete abstraction that still exposed raw XML concepts at certain edge cases, and no validation step before submission - both closed in the same release that added AI proofreading.',
             number: '01',
             featured: true,
             roleNote: 'Role: product strategy, delivery ownership, AI integration direction',
@@ -206,8 +228,11 @@ export const siteConfig: SiteConfig = {
             tag: 'Leadership - Process',
             title: 'Cross-Functional\nValidation & Training',
             description:
-                "Every issue in a new workflow got debated the same way: was it bad training, or bad software? I proposed a user-acceptance process that put every affected team - engineering, documentation, and the end users themselves - in the same room to diagnose root cause on the spot, then pitched the business case to leadership myself and got unanimous approval. It shipped a stronger authoring workflow within 2 months of a 9-month initiative, and became the direct setup for the Word add-in's AI proofreading work.",
+                "Every issue in a new workflow got debated the same way: was it bad training, or bad software? I proposed a user-acceptance process that put every affected team - engineering, documentation, and the end users themselves - in the same room to diagnose root cause on the spot, then pitched the business case to leadership and got unanimous approval. It shipped a stronger authoring workflow within 2 months of a 9-month initiative, and became the direct setup for the Word add-in's AI proofreading work.",
+            scope:
+                "Scoped for about 9 months. The effects reached well beyond the tools it was built to validate - all the way to translation, work outside any single initiative's scope.",
             number: '02',
+            roleNote: 'Role: process design, business case ownership, cross-team facilitation',
             stats: [
                 { value: '2 mo', label: 'To delivery (9-mo initiative)' },
                 { value: '80%', label: "Fed Word add-in's error-rate cut" },
@@ -219,10 +244,29 @@ export const siteConfig: SiteConfig = {
             title: 'Multi-Vendor AI\nIntegration',
             description:
                 "Microsoft Copilot on one side, Amazon's AI infrastructure - OpenAI, Claude - on the other. I drive the integration work across both through an internal abstraction layer, so the org can swap or add vendors without tearing out what's built on top of them - it's the plumbing behind the Word add-in's proofreading.",
+            scope:
+                "The abstraction layer itself is built and maintained by a partner team - my role is translating stakeholder and end-user feedback on top of it into vendor-agnostic feature requests, not managing the layer directly.",
             number: '03',
+            roleNote: 'Role: vendor integration strategy, technical direction',
             stats: [
                 { value: 'Hundreds–Thousands', label: 'Users impacted' },
                 { value: 'Multi-vendor', label: 'Abstraction strategy' },
+            ],
+        },
+        {
+            id: 'plugin-architecture',
+            tag: 'Architecture - Platform',
+            title: 'Modular Plugin\nArchitecture',
+            description:
+                "Our branch network kept adding new data types - file, metrics, language-metadata, feedback - and each one meant either bolting onto a growing monolith or starting over. I designed a modular, hot-swappable plugin architecture instead, built on one decision: abstract the API layer from the data storage layer, so what the API promised and where the data actually lived could change independently. That's what let one service split data across three global regions without the API ever changing, and years later let the org migrate off on-premise servers to AWS without anyone consuming it noticing.",
+            scope:
+                'I also led the REST service design and back-end implementation myself, coordinating integration with front ends built in JavaScript, TypeScript, and AngularJS, and built internal SDKs adopted by 5+ teams and 30+ developers who never had to hand-roll their own integration.',
+            stack: 'C# - Entity Framework - MS SQL Server',
+            number: '04',
+            roleNote: 'Role: architecture design, REST API & backend implementation, SDK strategy',
+            stats: [
+                { value: '99.9%', label: 'Uptime, zero major outages' },
+                { value: '15 yrs', label: 'Core components still in production' },
             ],
         },
         {
@@ -231,8 +275,15 @@ export const siteConfig: SiteConfig = {
             title: 'Cross-Platform\nWord Processor',
             description:
                 "I owned the product definition for a word processor built from scratch - Vue, TypeScript, Electron - for macOS and Windows, wrapped around a file format proprietary to the org. The point was that it had to feel familiar to authors coming from tools they already knew - part of the foundation for localizing content into 1,100+ languages.",
-            annotation: 'Vue - Electron - TypeScript',
-            number: '04',
+            scope:
+                'No prior product to reference, and no existing precedent for editing support on this file format - the team had to define both the product and the technical approach at the same time.',
+            stack: 'Vue - Electron - TypeScript',
+            number: '05',
+            roleNote: 'Role: product definition, cross-platform UX direction',
+            stats: [
+                { value: '15+', label: 'Cross-functional contributors' },
+                { value: 'Multi-country', label: 'Distributed team' },
+            ],
         },
         {
             id: 'documentation-platform',
@@ -240,8 +291,9 @@ export const siteConfig: SiteConfig = {
             title: 'Documentation Platform\n& AI Enablement',
             description:
                 "150+ team members and 300+ outside developers needed one place to find who owned what and how things worked, instead of guessing or asking around. It's not an off-the-shelf VuePress site - I built it out with custom plugins for team schedules, ownership mapping, and skills visibility, plus a self-service onboarding pipeline so other teams and disciplines could stand up and publish their own docs without routing through me. It ended up laying the groundwork the org later used for its own agentic AI fine-tuning.",
-            annotation: 'VuePress - Vite - TypeScript',
-            number: '05',
+            stack: 'VuePress - Vite - TypeScript',
+            number: '06',
+            roleNote: 'Role: platform build, plugin architecture, self-service enablement',
             stats: [
                 { value: 'Custom-built', label: 'Plugin ecosystem' },
                 { value: 'Self-service', label: 'Team onboarding' },
@@ -253,8 +305,11 @@ export const siteConfig: SiteConfig = {
             title: 'iOS Mobile\nPublishing Platform',
             description:
                 "I managed and helped build an iOS app - Objective-C, UIKit, Core Data - that opened multilingual publication access to 9M+ core active users worldwide, shipping a week ahead of an eight-month deadline. I pushed hard for an MVP-first approach on that launch instead of trying to ship everything at once - it worked well enough to become how the org approached new products going forward.",
-            annotation: 'Objective-C - UIKit - Core Data',
-            number: '06',
+            scope:
+                'Part of a broader multi-platform initiative - iOS, Android, and Windows launching together - with two unknowns still open at the start: which publications would make the initial list, and how to design a reading experience in a space the team had never built for before. Every platform version, including this one, shipped on schedule or early.',
+            stack: 'Objective-C - UIKit - Core Data',
+            number: '07',
+            roleNote: 'Role: product management, hands-on engineering, launch strategy',
             stats: [
                 { value: '9M+', label: 'Core active users' },
                 { value: '1 wk early', label: 'Ahead of deadline' },
@@ -266,7 +321,10 @@ export const siteConfig: SiteConfig = {
             title: 'Agile Transformation\n& Delivery Acceleration',
             description:
                 'When I moved into product management here, releases went out every three or four months and the open stakeholder feedback queue had grown into the hundreds. I championed Agile practices, trained the team on them, and got us releasing monthly, then bi-weekly - a 4-6x improvement - while working that backlog down to under 50 open items.',
-            number: '07',
+            scope:
+                'Before the change, stakeholder feedback could sit unresolved for six months or more, with decisions already locked in long before anyone validated them. After, most items were resolved within a single cycle - a few weeks from raised to shipped.',
+            number: '08',
+            roleNote: 'Role: process leadership, team training, delivery cadence',
             stats: [
                 { value: '4-6x', label: 'Faster release cadence' },
                 { value: '<50', label: 'Open items (from 100s)' },

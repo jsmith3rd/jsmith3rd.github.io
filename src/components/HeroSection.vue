@@ -37,11 +37,16 @@ import { siteConfig } from '../config/site'
         <div class="skills-card-bg" aria-hidden="true"></div>
         <div class="skills-card">
           <p class="skills-card-label">Specialties</p>
-          <div class="skills-list">
-            <span v-for="skill in siteConfig.hero.specialties" :key="skill"
-              :class="['skill-tag', { accent: siteConfig.hero.highlightedSpecialties.includes(skill) }]">
-              {{ skill }}
-            </span>
+          <div class="skills-groups">
+            <div v-for="group in siteConfig.hero.specialtyGroups" :key="group.label" class="skills-group">
+              <p class="skills-group-label">{{ group.label }}</p>
+              <div class="skills-list">
+                <span v-for="skill in group.items" :key="skill"
+                  :class="['skill-tag', { accent: siteConfig.hero.highlightedSpecialties.includes(skill) }]">
+                  {{ skill }}
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -215,10 +220,10 @@ import { siteConfig } from '../config/site'
 .skills-card-bg {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+  top: -18px;
+  bottom: -18px;
+  transform: translateX(-50%);
   width: clamp(320px, 26vw, 460px);
-  height: clamp(310px, 24vw, 420px);
   border: 1.5px solid var(--rule);
   border-radius: 12px;
   z-index: 1;
@@ -241,7 +246,7 @@ import { siteConfig } from '../config/site'
   border: 0.5px solid var(--rule);
   border-radius: 2px;
   padding: clamp(28px, 2.2vw, 40px);
-  width: clamp(280px, 22vw, 400px);
+  width: clamp(300px, 24vw, 420px);
   position: relative;
   z-index: 2;
   margin: 0 auto;
@@ -250,12 +255,26 @@ import { siteConfig } from '../config/site'
   align-items: center;
 }
 
+.skills-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+.skills-group-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--accent-mid);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 8px;
-  justify-content: center;
-  margin-top: 10px;
 }
 
 .skills-card-label {
@@ -264,7 +283,8 @@ import { siteConfig } from '../config/site'
   letter-spacing: 0.12em;
   color: var(--ink-3);
   text-transform: uppercase;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  align-self: flex-start;
 }
 
 .skill-tag {
@@ -282,6 +302,7 @@ import { siteConfig } from '../config/site'
   background: var(--accent-lt);
   border-color: var(--accent-mid);
   color: var(--accent);
+  font-weight: 500;
 }
 
 @media (max-width: 1024px) {
