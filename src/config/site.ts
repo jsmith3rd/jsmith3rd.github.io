@@ -164,6 +164,7 @@ export const siteConfig: SiteConfig = {
             'Global product delivery',
             'Roadmap prioritization',
             'Customer discovery',
+            'Change management & training',
             'UX direction',
             'Agile / Scrum',
             'Cross-platform desktop',
@@ -201,12 +202,24 @@ export const siteConfig: SiteConfig = {
             ],
         },
         {
+            id: 'validation-training',
+            tag: 'Leadership - Process',
+            title: 'Cross-Functional\nValidation & Training',
+            description:
+                "Every issue in a new workflow got debated the same way: was it bad training, or bad software? I proposed a user-acceptance process that put every affected team - engineering, documentation, and the end users themselves - in the same room to diagnose root cause on the spot, then pitched the business case to leadership myself and got unanimous approval. It shipped a stronger authoring workflow within 2 months of a 9-month initiative, and became the direct setup for the Word add-in's AI proofreading work.",
+            number: '02',
+            stats: [
+                { value: '2 mo', label: 'To delivery (9-mo initiative)' },
+                { value: '80%', label: "Fed Word add-in's error-rate cut" },
+            ],
+        },
+        {
             id: 'ai-integration',
             tag: 'AI - Strategy',
             title: 'Multi-Vendor AI\nIntegration',
             description:
                 "Microsoft Copilot on one side, Amazon's AI infrastructure - OpenAI, Claude - on the other. I drive the integration work across both through an internal abstraction layer, so the org can swap or add vendors without tearing out what's built on top of them - it's the plumbing behind the Word add-in's proofreading.",
-            number: '02',
+            number: '03',
             stats: [
                 { value: 'Hundreds–Thousands', label: 'Users impacted' },
                 { value: 'Multi-vendor', label: 'Abstraction strategy' },
@@ -219,16 +232,20 @@ export const siteConfig: SiteConfig = {
             description:
                 "I owned the product definition for a word processor built from scratch - Vue, TypeScript, Electron - for macOS and Windows, wrapped around a file format proprietary to the org. The point was that it had to feel familiar to authors coming from tools they already knew - part of the foundation for localizing content into 1,100+ languages.",
             annotation: 'Vue - Electron - TypeScript',
-            number: '03',
+            number: '04',
         },
         {
             id: 'documentation-platform',
             tag: 'Platform - AI',
             title: 'Documentation Platform\n& AI Enablement',
             description:
-                "150+ team members and 300+ outside developers needed one place to find who owned what and how things worked, instead of guessing or asking around. I own the org's documentation hub - VuePress, Vite, TypeScript - and it ended up laying the groundwork the org later used for its own agentic AI fine-tuning.",
+                "150+ team members and 300+ outside developers needed one place to find who owned what and how things worked, instead of guessing or asking around. It's not an off-the-shelf VuePress site - I built it out with custom plugins for team schedules, ownership mapping, and skills visibility, plus a self-service onboarding pipeline so other teams and disciplines could stand up and publish their own docs without routing through me. It ended up laying the groundwork the org later used for its own agentic AI fine-tuning.",
             annotation: 'VuePress - Vite - TypeScript',
-            number: '04',
+            number: '05',
+            stats: [
+                { value: 'Custom-built', label: 'Plugin ecosystem' },
+                { value: 'Self-service', label: 'Team onboarding' },
+            ],
         },
         {
             id: 'ios-platform',
@@ -237,7 +254,7 @@ export const siteConfig: SiteConfig = {
             description:
                 "I managed and helped build an iOS app - Objective-C, UIKit, Core Data - that opened multilingual publication access to 9M+ core active users worldwide, shipping a week ahead of an eight-month deadline. I pushed hard for an MVP-first approach on that launch instead of trying to ship everything at once - it worked well enough to become how the org approached new products going forward.",
             annotation: 'Objective-C - UIKit - Core Data',
-            number: '05',
+            number: '06',
             stats: [
                 { value: '9M+', label: 'Core active users' },
                 { value: '1 wk early', label: 'Ahead of deadline' },
@@ -249,7 +266,7 @@ export const siteConfig: SiteConfig = {
             title: 'Agile Transformation\n& Delivery Acceleration',
             description:
                 'When I moved into product management here, releases went out every three or four months and the open stakeholder feedback queue had grown into the hundreds. I championed Agile practices, trained the team on them, and got us releasing monthly, then bi-weekly - a 4-6x improvement - while working that backlog down to under 50 open items.',
-            number: '06',
+            number: '07',
             stats: [
                 { value: '4-6x', label: 'Faster release cadence' },
                 { value: '<50', label: 'Open items (from 100s)' },
