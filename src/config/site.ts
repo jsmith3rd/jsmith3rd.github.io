@@ -176,6 +176,7 @@ export const siteConfig: SiteConfig = {
                 items: [
                     'AI-enabled workflows',
                     'Software architecture',
+                    'Workflow modernization',
                     'UX direction',
                     'Cross-platform desktop',
                 ],
@@ -186,6 +187,7 @@ export const siteConfig: SiteConfig = {
                     'Global product delivery',
                     'Customer discovery',
                     'Publishing software',
+                    'Localization & i18n',
                 ],
             },
         ],
@@ -260,7 +262,7 @@ export const siteConfig: SiteConfig = {
             description:
                 "Our branch network kept adding new data types - file, metrics, language-metadata, feedback - and each one meant either bolting onto a growing monolith or starting over. I designed a modular, hot-swappable plugin architecture instead, built on one decision: abstract the API layer from the data storage layer, so what the API promised and where the data actually lived could change independently. That's what let one service split data across three global regions without the API ever changing, and years later let the org migrate off on-premise servers to AWS without anyone consuming it noticing.",
             scope:
-                'I also led the REST service design and back-end implementation myself, coordinating integration with front ends built in JavaScript, TypeScript, and AngularJS, and built internal SDKs adopted by 5+ teams and 30+ developers who never had to hand-roll their own integration.',
+                "I'd already taken on two separate applications before this build - one for workflow and file-versioning, one for managing language data for localization - and what each needed shaped two of these service modules, file storage and language-metadata. I also led the REST service design and back-end implementation myself, coordinating integration with front ends built in JavaScript, TypeScript, and AngularJS, and built internal SDKs adopted by 5+ teams and 30+ developers who never had to hand-roll their own integration. Years later I led migrating both applications off their own siloed legacy repositories onto this architecture: the workflow app at 20+ TB of scale, the language-data app into a single global source of truth other teams now rely on for localization and translation.",
             stack: 'C# - Entity Framework - MS SQL Server',
             number: '04',
             roleNote: 'Role: architecture design, REST API & backend implementation, SDK strategy',
@@ -304,7 +306,7 @@ export const siteConfig: SiteConfig = {
             tag: 'Mobile - iOS',
             title: 'iOS Mobile\nPublishing Platform',
             description:
-                "I managed and helped build an iOS app - Objective-C, UIKit, Core Data - that opened multilingual publication access to 9M+ core active users worldwide, shipping a week ahead of an eight-month deadline. I pushed hard for an MVP-first approach on that launch instead of trying to ship everything at once - it worked well enough to become how the org approached new products going forward.",
+                "I managed and helped build an iOS app - Objective-C, UIKit, Core Data - that opened multilingual publication access to 9M+ core active users worldwide, shipping a week ahead of an eight-month deadline. I pushed hard for an MVP-first approach on that launch instead of trying to ship everything at once - it worked well enough to influence how our department approached new products going forward.",
             scope:
                 'Part of a broader multi-platform initiative - iOS, Android, and Windows launching together - with two unknowns still open at the start: which publications would make the initial list, and how to design a reading experience in a space the team had never built for before. Every platform version, including this one, shipped on schedule or early.',
             stack: 'Objective-C - UIKit - Core Data',
@@ -367,7 +369,7 @@ export const siteConfig: SiteConfig = {
                 role: 'Full-Stack Developer & UX Designer',
                 organization: 'Watchtower',
                 detail:
-                    'Led a modular, hot-swappable plugin architecture for a foundational enterprise service platform and REST infrastructure still used org-wide - 99.9% uptime with zero major service-caused outages.',
+                    'Led a modular, hot-swappable plugin architecture for a foundational enterprise service platform and REST infrastructure still used org-wide, shaped in part by two applications I owned - one for workflow and file-versioning, one for language data - 99.9% uptime with zero major service-caused outages.',
             },
             {
                 years: '2001-\n2009',
