@@ -1,12 +1,12 @@
 <script setup lang="ts">
-
+import type { VCardContact } from '../config/site'
 import VCardDownload from './VCardDownload.vue'
 const props = defineProps<{
   isQrZoomed: boolean
   closeQrZoom: () => void
   toggleQrZoom: (source: 'contact_qr') => void
   vcard: { src: string; alt: string; label: string }
-  vcardContact: any
+  vcardContact: VCardContact
 }>()
 </script>
 

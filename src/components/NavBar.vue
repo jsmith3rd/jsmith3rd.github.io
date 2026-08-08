@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import removed: no longer needed
 import { siteConfig } from '../config/site'
 const props = defineProps<{
   activeSection: string

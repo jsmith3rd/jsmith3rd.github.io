@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { siteConfig } from '../config/site'
 import VCardDownload from './VCardDownload.vue'
-// import removed: no longer needed
 const props = defineProps<{
   toggleQrZoom: (source: 'contact_qr') => void
 }>()
@@ -98,20 +97,13 @@ const props = defineProps<{
 }
 
 .contact-logo-bg img {
-  width: 110%;
+  width: 100%;
   max-width: 800px;
   min-width: 400px;
   height: auto;
   display: block;
   user-select: none;
   margin-right: 0;
-}
-
-.contact-logo-bg img {
-  width: 100%;
-  height: auto;
-  display: block;
-  user-select: none;
 }
 
 .contact-content {
