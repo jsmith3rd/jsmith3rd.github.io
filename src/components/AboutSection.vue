@@ -42,6 +42,42 @@ import { siteConfig } from '../config/site'
   background: var(--paper-2);
 }
 
+.photo-placeholder {
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 32px;
+  aspect-ratio: 1 / 1;
+  background: var(--paper-3);
+  border: 0.5px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--paper-3) 0%, var(--accent-lt) 100%);
+  opacity: 0.4;
+}
+
+.profile-photo-img.fill {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow:
+    0 8px 32px rgba(30, 30, 30, 0.13),
+    0 1.5px 8px rgba(0, 0, 0, 0.06);
+  filter: contrast(1.01) saturate(1.04);
+  display: block;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;

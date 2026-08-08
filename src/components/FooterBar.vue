@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { siteConfig } from '../config/site'
-// import removed: no longer needed
 const props = defineProps<{
   openPrivacyPreferences: () => void
   trackEvent: (event: string, data?: Record<string, any>) => void
